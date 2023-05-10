@@ -1,7 +1,20 @@
 [
     {
-        "username":"user",
-        "user_id":"",
+        "name":"user",
+        "email":"test@gmail.com",
+        "password":"abcdef1234"
+    },
+
+    {
+        "name":"user1",
+        "email":"test1@gmail.com",
+        "password":"abcdef1234"
+    },
+
+    {
+        "name":"user2",
+        "email":"test2@gmail.com",
         "password":"abcdef1234"
     }
+    
 ]
