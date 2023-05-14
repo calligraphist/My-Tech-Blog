@@ -14,7 +14,7 @@ router.get("/login", (req,res)=>{
 // Send the rendered dashboard Handlebars.js template back as the response
 router.get("/dashboard", (req,res)=>{
     const name ="test";
-    res.render("dashboard", { name: name }, {blog})
+    res.render("dashboard", { name: name })
 });
 
 // Send the rendered blog Handlebars.js template back as the response

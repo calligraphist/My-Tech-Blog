@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/blog');
       } else {
         alert('Failed to create blog');
       }
@@ -30,7 +30,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/blog');
       } else {
         alert('Failed to delete blog');
       }
@@ -42,6 +42,6 @@ const newFormHandler = async (event) => {
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.blog-list')
+    .querySelector('#blog-list')
     .addEventListener('click', delButtonHandler);
   
