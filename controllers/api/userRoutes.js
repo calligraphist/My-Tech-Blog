@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Blog, Comment, User } = require("../../models");
-//const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // router.get("/", (req, res) => {
 //   User.findAll({ include: [Blog, Comment] })
@@ -28,17 +28,15 @@ const { Blog, Comment, User } = require("../../models");
 //     });
 // });
 
-router.post('/', async (req, res) => {
+router.post('/',  async (req, res) => {
   try {
-    const userdata = await User.create(req.body);
-let dbUserData;
-    dbUserData = 
+    const userdata = await User.create(req.body)
      req.session.save(() => {
       req.session.userId = userdata.id;
-      req.session.username =userdata.username;
+      req.session.username =userdata.name;
       req.session.logged_in = true;
 
-      res.status(200).json(dbUserData);//(userdata)
+      res.status(200).json(userdata);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -85,17 +83,19 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.userId = userdata.id;
+      req.session.username =userdata.name;
       req.session.logged_in = true;
       
       res.json({ user: userdata, message: 'You are now logged in!' });
     });
-
+  console.log(req.session)
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.post('/logout', (req, res) => {
+  console.log(req.session.logged_in)
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
