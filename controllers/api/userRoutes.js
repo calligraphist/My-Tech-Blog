@@ -28,6 +28,23 @@ const { Blog, Comment, User } = require("../../models");
 //     });
 // });
 
+router.post('/', async (req, res) => {
+  try {
+    const userdata = await User.create(req.body);
+let dbUserData;
+    dbUserData = 
+     req.session.save(() => {
+      req.session.userId = userdata.id;
+      req.session.username =userdata.username;
+      req.session.logged_in = true;
+
+      res.status(200).json(dbUserData);//(userdata)
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.put("/:id", (req, res) => {
   User.update(req.body, { where: { blog_id: req.params.id } })
     .then((userdata) => res.json(userdata))
@@ -44,20 +61,6 @@ router.delete("/:id", (req, res) => {
 // router.get("/", async (req, res) => {
 //   res.render("all", { user });
 // });
-router.post('/', async (req, res) => {
-  try {
-    const userdata = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.userId = userdata.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userdata);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 
 router.post('/login', async (req, res) => {
