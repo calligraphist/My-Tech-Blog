@@ -11,6 +11,7 @@ const { Blog, Comment, User } = require("../../models");
 // router.get("/:id", (req, res) => {
 //   User.findOne({ where: { id: req.params.id }, include: [Blog, Comment] })
 //     .then((userdata) => res.json(userdata))
+
 //     .catch((err) => res.json(err));
 // });
 
@@ -18,6 +19,13 @@ const { Blog, Comment, User } = require("../../models");
 //   User.create(req.body)
 //     .then((userdata) => res.json(userdata))
 //     .catch((err) => res.json(err));
+
+//     req.session.save(() => {
+//       req.session.userId = userdata.id;
+//       req.session.logged_in = true;
+
+//       res.status(200).json(userdata);
+//     });
 // });
 
 router.put("/:id", (req, res) => {
