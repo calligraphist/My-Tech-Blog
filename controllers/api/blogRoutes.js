@@ -3,7 +3,7 @@ const { Blog, User } = require("../../models");
 //const withAuth = require('../../utils/auth');
 
 router.get("/", (req, res) => {
-  Blog.findAll({ include: [User] })
+  Blog.findAll({ include: [User, Blog] })
     .then((blogdata) => res.json(blogdata))
     .catch((err) => res.status(500).json(err));
 });
