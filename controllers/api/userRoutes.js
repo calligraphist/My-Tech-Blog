@@ -44,14 +44,14 @@ router.post('/',  async (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  User.update(req.body, { where: { blog_id: req.params.id } })
-    .then((userdata) => res.json(userdata))
+  Blog.update(req.body, { where: { userId: req.params.id } })
+    .then((blogdata) => res.json(blogdata))
     .catch((err) => res.json(err));
 });
 
 router.delete("/:id", (req, res) => {
-  User.destroy({ where: { blog_id: req.params.id } })
-    .then((userdata) => res.json(userdata))
+  Blog.destroy({ where: { userId: req.params.id } })
+    .then((blogdata) => res.json(blogdata))
     .catch((err) => res.json(err));
 });
 
