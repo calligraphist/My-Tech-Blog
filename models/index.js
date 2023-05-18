@@ -4,6 +4,51 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+class Comment extends Model {}
+
+Comment.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+  }
+);
+
+class Blog extends Model {}
+
+Blog.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    text: {
+      type: DataTypes.STRING,
+    },
+  },
+    {
+    sequelize,
+  }
+);
+
+
+
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -60,8 +105,6 @@ User.init(
 //module.exports = User;
 
 
-const Comment = require("./Comment");
-const Blog = require("./Blog");
 Blog.belongsTo(User, {
     foreignKey:"userId",
     onDelete:"CASCADE"
