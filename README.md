@@ -11,18 +11,20 @@
 ## Description of Project
 This is to build a CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts as well. It is deployed to Heroku. this application follows MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
+## Heroku link
+
+https://enigmatic-scrubland-84413.herokuapp.com/
+
 ## Screenshot
 Following is the screenshots of my application:
 ![this fullfill all the requirements](1.png)
 ![this fullfill all the requirements](2.png)
 ![this fullfill all the requirements](3.png)
 
-## Heroku link
-
 
 ## Acknowledgements
 
-This project is done for UNB Bootcamp, thanks for the opportunity. I am thankful to my tutor for all the help. AskBCS is really appreciated. Miniproject was a big help.
+This project is done for UNB Bootcamp, thanks for the opportunity. My instructor is very knowledgeable and helpful during office hours. I am thankful to my tutor for all the help. AskBCS help is really appreciated. Miniproject was a big help.
 
 ## Questions
 
